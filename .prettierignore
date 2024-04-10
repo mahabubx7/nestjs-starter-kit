@@ -1,0 +1,9 @@
+.git
+.github
+.gitignore
+node_modules/
+dist/
+*.md
+*-lock.json
+.nvmrc
+*-cli.json
