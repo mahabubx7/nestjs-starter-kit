@@ -11,10 +11,10 @@ Mailer: NodeMailer (tempMail)
 
 ## TODO:
 
-- [ ] Compose Nest.js application initials!
-- [ ] Setup `commit-lint` for standard commit history
-- [ ] Setup `ESLint` & `Prettier`
-- [ ] Setup `husky` & `lint-staged` for lint-proof commits
+- [x] Compose Nest.js application initials!
+- [x] Setup `commit-lint` for standard commit history
+- [x] Setup `ESLint` & `Prettier`
+- [x] Setup `husky` & `lint-staged` for lint-proof commits
 - [ ] Setup and config `env` variables & docker-composed instances
 - [ ] Setup `Knex.js` with `PostgreSQL`
 - [ ] Setup Validation-pipes for incoming request body
