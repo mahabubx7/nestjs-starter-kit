@@ -18,8 +18,6 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "precommit": "npx lint-staged",
-    "commit-msg": "npx commitlint -E HUSKY_GIT_PARAMS",
     "prepare": "husky || true"
   },
   "dependencies": {
@@ -41,8 +39,6 @@
     "@types/supertest": "^6.0.0",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
-    "commitizen": "^4.3.0",
-    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.29.1",
