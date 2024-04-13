@@ -1,0 +1,22 @@
+version: '3'
+services:
+  api:
+    image: your-api-image:latest
+    ports:
+      - 80:80
+    environment:
+      - NODE_ENV=production
+      - APP_ENV=production
+    restart: always
+    # Add any additional configuration specific to your API service
+
+  db:
+    image: postgres:latest
+    # Add any additional configuration specific to your database service
+
+  # Add any other services your application requires (e.g., caching, message queue, etc.)
+
+networks:
+  default:
+    external:
+      name: network-stack-name-nestjsapp
