@@ -10,5 +10,5 @@
     "application/xml": "xml",
     "application/zip": "zip"
   },
-  "cSpell.words": ["commitlint", "mahabubx", "nestjs", "precommit"]
+  "cSpell.words": ["commitlint", "knexjs", "mahabubx", "nestjs", "precommit", "typeorm"]
 }
