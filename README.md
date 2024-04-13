@@ -15,7 +15,7 @@ Mailer: NodeMailer (tempMail)
 - [x] Setup `commit-lint` for standard commit history
 - [x] Setup `ESLint` & `Prettier`
 - [x] Setup `husky` & `lint-staged` for lint-proof commits
-- [ ] Setup and config `env` variables & docker-composed instances
+- [x] Setup and config `env` variables & docker-composed instances
 - [ ] Setup `Knex.js` with `PostgreSQL`
 - [ ] Setup Validation-pipes for incoming request body
 - [ ] Implement User Module with CRUD
