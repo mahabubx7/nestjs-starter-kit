@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { User } from './entities/user.entity';
 import { CreateUserDto, UpdateUserDto } from './dto';
@@ -26,7 +26,16 @@ export class UserService {
   }
 
   async addNewUser(user: CreateUserDto): Promise<IUserSafe> {
-    return (await this.userRepo.save(user)) satisfies IUserSafe;
+    try {
+      const attempt = (await this.userRepo.save(user)) satisfies IUserSafe;
+      return attempt;
+    } catch (error) {
+      if (error.code === '23505') {
+        throw new HttpException('Email already exists!', 409);
+      } else {
+        throw new HttpException('Something went wrong!', 500);
+      }
+    }
   }
 
   async updateUser(id: number, user: UpdateUserDto): Promise<IUserSafe | null> {

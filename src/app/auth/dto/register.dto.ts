@@ -1,4 +1,4 @@
-import { Equals, IsAlpha, IsNotEmpty, MinLength } from 'class-validator';
+import { IsAlpha, IsNotEmpty, MinLength } from 'class-validator';
 import { LoginDto } from './login.dto';
 
 export class RegisterDto extends LoginDto {
@@ -9,6 +9,9 @@ export class RegisterDto extends LoginDto {
 
   @IsNotEmpty()
   @MinLength(8)
-  @Equals('password', { message: 'Passwords do not match' })
+  password: string;
+
+  @IsNotEmpty()
+  @MinLength(8)
   confirmPassword: string;
 }

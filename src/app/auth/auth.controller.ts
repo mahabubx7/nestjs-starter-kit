@@ -29,6 +29,8 @@ export class AuthController {
 
   @Post('register')
   async register(@Body() payload: RegisterDto, @Res() res: Response) {
+    if (payload.password !== payload.confirmPassword)
+      throw new HttpException('Passwords do not match!', 400);
     const attempt = await this.authSrv.signUp(payload);
     res
       .status(HttpStatus.CREATED)

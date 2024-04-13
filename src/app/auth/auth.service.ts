@@ -57,7 +57,10 @@ export class AuthService {
     accessToken: string;
   }> {
     return {
-      accessToken: await this.jwtService.signAsync(payload),
+      accessToken: await this.jwtService.signAsync(payload, {
+        expiresIn: '1h', // 1 hour :: change as needed
+        secret: process.env.JWT_SECRET,
+      }),
     };
   }
 }

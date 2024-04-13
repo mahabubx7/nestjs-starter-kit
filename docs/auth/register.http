@@ -1,0 +1,90 @@
+### Register a User [Ugly error try]
+POST http://localhost:4000/auth/register HTTP/1.1
+content-type: application/json
+
+{
+    "name": "test",
+    "email": "test",
+    "password": "test"
+}
+
+## Response [400 Bad Request]
+
+{
+  "message": [
+    "Passwords do not match",
+    "confirmPassword must be longer than or equal to 8 characters",
+    "confirmPassword should not be empty",
+    "email must be an email",
+    "password must be longer than or equal to 8 characters"
+  ],
+  "error": "Bad Request",
+  "statusCode": 400
+}
+
+### Register a User [confirmPassword is empty]
+POST http://localhost:4000/auth/register HTTP/1.1
+content-type: application/json
+
+{
+    "name": "test",
+    "email": "test@user.mail",
+    "password": "test1234"
+}
+
+## Response [400 Bad Request]
+
+{
+  "message": [
+    "Passwords do not match",
+    "confirmPassword must be longer than or equal to 8 characters",
+    "confirmPassword should not be empty"
+  ],
+  "error": "Bad Request",
+  "statusCode": 400
+}
+
+### Register a User [passwords are okay] :: Success try
+POST http://localhost:4000/auth/register HTTP/1.1
+content-type: application/json
+
+{
+    "name": "test",
+    "email": "test@user1.mail",
+    "password": "test1234",
+    "confirmPassword": "test1234"
+}
+
+## Response [201 Created]
+
+{
+  "message": "Registration successful!",
+  "user": {
+    "name": "test",
+    "email": "test@user1.mail",
+    "password": "test1234",
+    "confirmPassword": "test1234",
+    "id": 9,
+    "role": "user",
+    "isEmailVerified": false
+  },
+  "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwiZW1haWwiOiJ0ZXN0QHVzZXIxLm1haWwiLCJyb2xlIjoidXNlciIsImlhdCI6MTcxMzAzOTQzMSwiZXhwIjoxNzEzMDQzMDMxfQ.fW_-J2CmrslZDUPK4PknIsKxlE1Jr7P0UUkTzGKpXII"
+}
+
+### Register a User [passwords are okay] :: Deplicate try
+POST http://localhost:4000/auth/register HTTP/1.1
+content-type: application/json
+
+{
+    "name": "test",
+    "email": "test@user1.mail",
+    "password": "test1234",
+    "confirmPassword": "test1234"
+}
+
+## Response [409 Conflict]
+
+{
+  "statusCode": 409,
+  "message": "Email already exists!"
+}
