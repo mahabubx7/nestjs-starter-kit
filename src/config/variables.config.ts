@@ -12,6 +12,7 @@ export default () => ({
   hashSecret: process.env.HASH_SECRET || generateSecret(4), // for hashing passwords
 
   database: {
+    name: process.env.DATABASE_NAME, // required
     host: process.env.DATABASE_HOST,
     port: parseInt(process.env.DATABASE_PORT, 10) || 5432,
     username: process.env.DATABASE_USERNAME, // required
