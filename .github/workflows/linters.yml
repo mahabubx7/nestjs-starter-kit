@@ -1,0 +1,35 @@
+name: Linters
+
+on:
+  pull_request:
+    branches:
+      - main
+      - dev
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 20 # Change this to your Node.js version
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run ESLint
+        run: npm run lint
+
+      - name: Check node_modules
+        run: |
+          if [ -d "node_modules" ]; then
+            echo "Error: node_modules directory exists! Please remove ❌ it from your PR. & push again."
+          else
+            echo "node_modules directory does not exist in the PR ✅. Good to go!"
+            exit 1
+          fi

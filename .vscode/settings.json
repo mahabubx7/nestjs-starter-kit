@@ -2,5 +2,13 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "files.eol": "\n",
-  "cSpell.words": ["commitlint", "mahabubx", "nestjs", "precommit"]
+  "rest-client.mimeAndFileExtensionMapping": {
+    "application/json": "json",
+    "application/javascript": "js",
+    "application/pdf": "pdf",
+    "application/xhtml+xml": "xhtml",
+    "application/xml": "xml",
+    "application/zip": "zip"
+  },
+  "cSpell.words": ["commitlint", "knexjs", "mahabubx", "nestjs", "precommit", "typeorm"]
 }
