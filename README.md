@@ -20,7 +20,7 @@ Mailer: NodeMailer (tempMail)
 - [x] Setup Validation-pipes for incoming request body
 - [ ] Implement User Module with CRUD with Basic `JWT` Auth.
 - [ ] Implement Todo Module with CRUD
-- [ ] Setup `RBAC/PBAC` with `nest-access-control`
+- [ ] Setup `RBAC/PBAC` with `KeyCloak`
 - [ ] Config **Todo with required permissions**
 - [ ] Setup `Swagger` API Documentation
 - [ ] Setup `Throttler` for rate-limiting
